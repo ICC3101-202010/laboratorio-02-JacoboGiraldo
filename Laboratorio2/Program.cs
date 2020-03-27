@@ -6,7 +6,9 @@ namespace Laboratorio2
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Cancion cancion1 = new Cancion("Trap", "Bad Bunny", "YHLQMDLG", "Safaera");
+            Console.WriteLine(cancion1.Informacion());
+
         }
     }
 }
