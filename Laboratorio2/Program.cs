@@ -6,17 +6,50 @@ namespace Laboratorio2
     {
         public static void Main(string[] args)
         {
+            string Bienvenida = "Bienvenido estimad@ usuario al nuevo Espotifai, porfavor elija la opcion que desee del menu de opciones ingresando el numero de esta.";
+            string ViewS = " 1) Ver Todas las canciones";
+            string AgregarS = " 2) Agregar nueva cancion";
+            string OutPro = " 3) Salir del programa";
+            string MENU = ViewS + "\n" + AgregarS + "\n" + OutPro;
 
-            string GenC = Console.ReadLine();
-            string ArtC = Console.ReadLine();
-            string AlbC = Console.ReadLine();
-            string NomC = Console.ReadLine();
-            Cancion C1 = new Cancion(GenC,ArtC,AlbC,NomC);
+            Console.WriteLine(Bienvenida);
+            Espotifai SpotifyFinal = new Espotifai();
 
-            Espotifai EspPrueba = new Espotifai();
-            EspPrueba.AgregarCancion(C1);
+            while (true)
+            {
+                Console.WriteLine(MENU);
+                string Seleccion = Console.ReadLine();
+                
+                if (Seleccion == "2")
+                {
+                    Console.WriteLine("A continuacion ingrese el genero, artista, album y nombre de su cancion");                
+                    string GenC = Console.ReadLine();
+                    string ArtC = Console.ReadLine();
+                    string AlbC = Console.ReadLine();
+                    string NomC = Console.ReadLine();
+                    Cancion X = new Cancion(GenC, ArtC, AlbC, NomC);
 
-            EspPrueba.VerCanciones();
+                    SpotifyFinal.AgregarCancion(X);
+                    
+                }
+                if (Seleccion == "1")
+                {
+                    SpotifyFinal.VerCanciones();
+                }
+
+                if (Seleccion == "3")
+                {
+                    Console.WriteLine("Ha salido del programa");
+                    break;
+                }
+            }
+
+            
+
+
+
+
+           
         }
 
     }   

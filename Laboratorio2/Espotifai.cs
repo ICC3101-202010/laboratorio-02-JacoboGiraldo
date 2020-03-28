@@ -24,22 +24,25 @@ namespace Laboratorio2
                 }
                 if (cancionX.Informacion() == Songs[Num].Informacion())
                 {
+                    Console.WriteLine("La cancion ya existe");
                     return false;
                 }
                 else 
                 {
                     Songs.Add(cancionX);
+                    Console.WriteLine("La cancion se agrego exitosamente");
                     return true;
                 }
             }
             if (Cont==0)
             {
                 Songs.Add(cancionX);
+                Console.WriteLine("La cancion se agrego exitosamente");
                 return true;
             }
             else
             {
-                return true;
+                return false;
             }
 
             
@@ -48,9 +51,13 @@ namespace Laboratorio2
 
         public void VerCanciones()
         {
-            foreach (Cancion SongList in Songs)
+            if (Songs.Count == 0)
             {
-                Console.WriteLine(SongList.Informacion());
+                Console.WriteLine("Aun no hay canciones agregadas");
+            }
+            foreach (Cancion SongOfList in Songs)
+            {
+                Console.WriteLine(SongOfList.Informacion());
             }
 
         }
