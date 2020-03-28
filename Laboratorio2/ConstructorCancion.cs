@@ -3,10 +3,10 @@ namespace Laboratorio2
 {
     public class Cancion
     {
-        public string Gen;
-        public string Art;
-        public string Alb;
-        public string Nom;
+        private string Gen;
+        private string Art;
+        private string Alb;
+        private string Nom;
 
         public Cancion(string gen, string art, string alb, string nom)
         {
@@ -16,9 +16,6 @@ namespace Laboratorio2
             Nom = nom;
 
         }
-
-
-       
 
         public string Informacion()
         {
