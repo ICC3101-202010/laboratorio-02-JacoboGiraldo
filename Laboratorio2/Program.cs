@@ -6,20 +6,17 @@ namespace Laboratorio2
     {
         public static void Main(string[] args)
         {
-            Cancion cancion1 = new Cancion("Trap", "Bad Bunny", "YHLQMDLG", "Safaera");
-            Cancion cancion2 = new Cancion("Trap", "Rich Music LTD", "The Academy", "Perreo en la Luna");
-            Cancion cancion3 = new Cancion("Trap", "Bad Bunny", "YHLQMDLG", "Safaera");
-            
 
-            Espotifai espotifai1 = new Espotifai();
-            Espotifai espotifai2 = new Espotifai();
-            Espotifai espotifai3 = new Espotifai();
+            string GenC = Console.ReadLine();
+            string ArtC = Console.ReadLine();
+            string AlbC = Console.ReadLine();
+            string NomC = Console.ReadLine();
+            Cancion C1 = new Cancion(GenC,ArtC,AlbC,NomC);
 
-            Console.WriteLine(espotifai1.AgregarCancion(cancion1));
-            Console.WriteLine(espotifai2.AgregarCancion(cancion2));
-            Console.WriteLine(espotifai3.AgregarCancion(cancion3));
+            Espotifai EspPrueba = new Espotifai();
+            EspPrueba.AgregarCancion(C1);
 
-            
+            EspPrueba.VerCanciones();
         }
 
     }   

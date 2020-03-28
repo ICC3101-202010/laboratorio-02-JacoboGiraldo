@@ -19,7 +19,7 @@ namespace Laboratorio2
 
         public string Informacion()
         {
-            string Inf = ("genero: " + Gen + ", artista: " + Art + ", album: " + Alb + ",nombre: " + Nom);
+            string Inf = "genero: " + Gen + ", artista: " + Art + ", album: " + Alb + ",nombre: " + Nom;
             return Inf;
         }
     }
