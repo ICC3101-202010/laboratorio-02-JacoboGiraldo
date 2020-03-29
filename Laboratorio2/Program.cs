@@ -10,7 +10,8 @@ namespace Laboratorio2
             string ViewS = " 1) Ver Todas las canciones";
             string AgregarS = " 2) Agregar nueva cancion";
             string OutPro = " 3) Salir del programa";
-            string MENU = ViewS + "\n" + AgregarS + "\n" + OutPro;
+            string Criterio = " 4) Ver canciones por Criterio";
+            string MENU = ViewS + "\n" + AgregarS + "\n" + OutPro +"\n" + Criterio;
 
             Console.WriteLine(Bienvenida);
             Espotifai SpotifyFinal = new Espotifai();
@@ -36,11 +37,23 @@ namespace Laboratorio2
                 {
                     SpotifyFinal.VerCanciones();
                 }
-
                 if (Seleccion == "3")
                 {
                     Console.WriteLine("Ha salido del programa");
                     break;
+                }
+                if (Seleccion == "4")
+                {
+                    Console.WriteLine("Porfavor ingrese su criterio y valor de busqueda:");
+                    string Cri = Console.ReadLine();
+                    string Val = Console.ReadLine();
+                    SpotifyFinal.CPC(Cri, Val);
+                    Console.WriteLine("Las canciones satisfacen su busqueda son las siguientes: ");
+                    foreach (Cancion Xsong in (SpotifyFinal.CPC(Cri, Val)))
+                    {
+                        Console.WriteLine(Xsong);
+                    }
+
                 }
             }
 
