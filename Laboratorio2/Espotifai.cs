@@ -63,7 +63,7 @@ namespace Laboratorio2
         }
 
         List<Cancion> SongsPC1 = new List<Cancion>();
-        public Cancion[] CPC(String Criterio, String Valor)
+        public List<Cancion> CPC(String Criterio, String Valor)
         {
             foreach (Cancion S in Songs)
             {
@@ -71,16 +71,8 @@ namespace Laboratorio2
                 {
                     SongsPC1.Add(S);
                 }
-            }
-
-            Cancion[] SongsPC2 = new Cancion[SongsPC1.Count];
-            int Cont = 0;
-            foreach (Cancion SONG in SongsPC1)
-            {
-                SongsPC2[Cont] = SONG;
-            }
-            
-            return SongsPC2;
+            }          
+            return SongsPC1;
 
 
             

@@ -47,12 +47,17 @@ namespace Laboratorio2
                     Console.WriteLine("Porfavor ingrese su criterio y valor de busqueda:");
                     string Cri = Console.ReadLine();
                     string Val = Console.ReadLine();
-                    SpotifyFinal.CPC(Cri, Val);
+
                     Console.WriteLine("Las canciones satisfacen su busqueda son las siguientes: ");
-                    foreach (Cancion Xsong in (SpotifyFinal.CPC(Cri, Val)))
+                    var Resul = SpotifyFinal.CPC(Cri, Val);
+                    for (int i = 0; i < Resul.Count; i++)
                     {
-                        Console.WriteLine(Xsong);
+                        Console.WriteLine(Resul[i].Informacion());
                     }
+
+
+
+
 
                 }
             }
