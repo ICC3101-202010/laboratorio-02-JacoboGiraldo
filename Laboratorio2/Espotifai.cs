@@ -70,13 +70,13 @@ namespace Laboratorio2
                 {
                     SongsPC1.Add(S);
                     Contador += 1;
-                }
-                else if (Contador == 0)
-                {
-                    Console.WriteLine("Sus criterios de busqueda no coinciden con ninguna cancion");
-                    
-                }
-            }          
+                } 
+            }
+            if (Contador == 0)
+            {
+                Console.WriteLine("Sus criterios de busqueda no coinciden con ninguna cancion");
+
+            }
             return SongsPC1;            
         }
         List<Cancion> Canciones = new List<Cancion>();
@@ -86,21 +86,32 @@ namespace Laboratorio2
         public bool GenerarPlaylist(String C, String VC, String Nombre)
         {
             List<Cancion> CancionesPL = CPC(C,VC);
-            
-            foreach(Cancion Y in CancionesPL)
-            {
-                if (Y.Informacion().Contains(C) && Y.Informacion().Contains(VC))
-                {
-                    Canciones.Add(Y);
 
-                }
+
+            if (Songs.Count == 0)
+            {
+                Console.WriteLine("No hay canciones existentes para agregar a su playlist");
+                return false;
+            }
+            else if (CancionesPL.Count == 0)
+            {
+                Console.WriteLine("No hay canciones que cumplan con el criterio para generar la playlist");
+                return false;
             }
             int Contador = 0;
             if (NombresPlayLists.Count == 0)
             {
                 NombresPlayLists.Add(Nombre);
+                foreach (Cancion Y in CancionesPL)
+                {
+                    if (Y.Informacion().Contains(C) && Y.Informacion().Contains(VC))
+                    {
+                        Canciones.Add(Y);
+
+                    }
+                }
                 Console.WriteLine("Su Playlist ha sido creada exitosamente");
-                PLAYLIST.Add(new Playlist(Nombre, Canciones));
+                PLAYLIST.Add(new Playlist(Nombre, CancionesPL));
                 return true;
             }
             else if(NombresPlayLists.Count!=0)
@@ -109,7 +120,6 @@ namespace Laboratorio2
                 if (NOM == Nombre)
                 {
                     Console.WriteLine("La playlist ya existe, intente de nuevo");
-                    Canciones.Clear();
                     CancionesPL.Clear();
                     return false;
                 }
@@ -118,25 +128,22 @@ namespace Laboratorio2
                     Contador += 1;
                 }
             }
-            
-
-            if (Songs.Count == 0)
-            {
-                Console.WriteLine("No hay canciones existentes para agregar a su playlist");
-                return false;
-            }
-            else if(CancionesPL.Count == 0)
-            {
-                Console.WriteLine("No hay canciones que cumplan con el criterio para generar la playlist");
-                return false;
-            }
+           
             
             
             if (Contador != 0)
             {
                 NombresPlayLists.Add(Nombre);
+                foreach (Cancion Y in CancionesPL)
+                {
+                    if (Y.Informacion().Contains(C) && Y.Informacion().Contains(VC))
+                    {
+                        Canciones.Add(Y);
+
+                    }
+                }
                 Console.WriteLine("Su Playlist ha sido creada exitosamente");
-                PLAYLIST.Add(new Playlist(Nombre,Canciones));
+                PLAYLIST.Add(new Playlist(Nombre,CancionesPL));
                 return true;
             }
             else

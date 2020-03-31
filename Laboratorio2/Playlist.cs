@@ -16,7 +16,7 @@ namespace Laboratorio2
         }
         public string InfoNPL()
         {
-            string NomPlay = ("El nombre de su PlayList es: " + NombreP);
+            string NomPlay = ("El nombre de su PlayList es: " + NombreP + "\n");
             return NomPlay;
         }
         public string InfoCS()
