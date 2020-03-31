@@ -6,16 +6,11 @@ namespace Laboratorio2
     public class Espotifai
     {
         List<Cancion> Songs = new List<Cancion>();
-        
-        
-        List<string> VPL = new List<string>();
         List<Playlist> PLAYLIST = new List<Playlist>();
-
 
         public Espotifai()
         {
-            
-        }     
+        }
         public bool AgregarCancion(Cancion cancionX)
         {
             int Cont = 0;
@@ -58,8 +53,7 @@ namespace Laboratorio2
             {
                 Console.WriteLine(SongOfList.Informacion());
             }
-        }
-        
+        }       
         public List<Cancion> CPC(String Criterio, String Valor)
         {
             List<Cancion> SongsPC1 = new List<Cancion>();
@@ -75,18 +69,14 @@ namespace Laboratorio2
             if (Contador == 0)
             {
                 Console.WriteLine("Sus criterios de busqueda no coinciden con ninguna cancion");
-
             }
             return SongsPC1;            
         }
         List<Cancion> Canciones = new List<Cancion>();
-        List<string> NombresPlayLists = new List<string>();
-        
-
+        List<string> NombresPlayLists = new List<string>();       
         public bool GenerarPlaylist(String C, String VC, String Nombre)
         {
             List<Cancion> CancionesPL = CPC(C,VC);
-
 
             if (Songs.Count == 0)
             {
@@ -107,7 +97,6 @@ namespace Laboratorio2
                     if (Y.Informacion().Contains(C) && Y.Informacion().Contains(VC))
                     {
                         Canciones.Add(Y);
-
                     }
                 }
                 Console.WriteLine("Su Playlist ha sido creada exitosamente");
@@ -127,10 +116,7 @@ namespace Laboratorio2
                 {
                     Contador += 1;
                 }
-            }
-           
-            
-            
+            }  
             if (Contador != 0)
             {
                 NombresPlayLists.Add(Nombre);
@@ -139,7 +125,6 @@ namespace Laboratorio2
                     if (Y.Informacion().Contains(C) && Y.Informacion().Contains(VC))
                     {
                         Canciones.Add(Y);
-
                     }
                 }
                 Console.WriteLine("Su Playlist ha sido creada exitosamente");
@@ -149,32 +134,23 @@ namespace Laboratorio2
             else
             {
                 return false;
-            }
-            
+            }         
         }
-
         public String VerMisPlaylists()
         {
-
             string RES = "";
             if (PLAYLIST.Count == 0)
             {
-                RES += "No hay ninguna playlist hasta el momento";
-                
+                RES += "No hay ninguna playlist hasta el momento";                
             }
             else if (PLAYLIST.Count != 0)
             {
                 foreach(Playlist playlist in PLAYLIST)
                 {
-                    RES += playlist.InfoNPL()+playlist.InfoCS() ;
-                    
+                    RES += playlist.InfoNPL()+playlist.InfoCS() ;              
                 }
             }
             return RES;
- 
-            
-
         }
-
     }   
 }

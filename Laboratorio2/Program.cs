@@ -55,18 +55,15 @@ namespace Laboratorio2
                     {
                         Console.WriteLine(Resul[i].Informacion());
                     }
-
                 }
                 if (Seleccion == "5")
                 {
-                    
                     Console.WriteLine("Porfavor ingrese el nombre de su playlist junto con el criterio y valor de las canciones que quiere dentro de esta");
                     string NP1 = Console.ReadLine();
                     string C1 = Console.ReadLine();
                     string CV1 = Console.ReadLine();
                     
                     SpotifyFinal.GenerarPlaylist(C1, CV1, NP1);
-                    
                 }
                 if (Seleccion == "6")
                 {
