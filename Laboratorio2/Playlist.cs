@@ -7,8 +7,7 @@ namespace Laboratorio2
     {
         private List<Cancion> PLfinal = new List<Cancion>();
         private string NombreP;
-        List<Cancion> CancionesPL = new List<Cancion>();
-        List<string> NombresPLayLists = new List<string>();
+       
 
         public Playlist(string NP, List<Cancion> cancions)
         {

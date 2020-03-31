@@ -70,7 +70,7 @@ namespace Laboratorio2
                 }
                 if (Seleccion == "6")
                 {
-                    Console.WriteLine("Sus playlists son las siguientes: ");
+                    Console.WriteLine("El resultado de su busqueda de playlist fue el siguiente: ");
                     Console.WriteLine(SpotifyFinal.VerMisPlaylists());
                 }
 
