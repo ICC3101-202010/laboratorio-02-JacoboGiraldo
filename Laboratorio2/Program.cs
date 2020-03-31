@@ -11,7 +11,9 @@ namespace Laboratorio2
             string AgregarS = " 2) Agregar nueva cancion";
             string OutPro = " 3) Salir del programa";
             string Criterio = " 4) Ver canciones por Criterio";
-            string MENU = ViewS + "\n" + AgregarS + "\n" + OutPro +"\n" + Criterio;
+            string CrearPL = " 5) Crear Playlist";
+            string VerPL = " 6) Ver mis Playlists";
+            string MENU = ViewS + "\n" + AgregarS + "\n" + OutPro +"\n" + Criterio + "\n" + CrearPL + "\n"+ VerPL;
 
             Console.WriteLine(Bienvenida);
             Espotifai SpotifyFinal = new Espotifai();
@@ -31,7 +33,6 @@ namespace Laboratorio2
                     Cancion X = new Cancion(GenC, ArtC, AlbC, NomC);
 
                     SpotifyFinal.AgregarCancion(X);
-                    
                 }
                 if (Seleccion == "1")
                 {
@@ -48,19 +49,32 @@ namespace Laboratorio2
                     string Cri = Console.ReadLine();
                     string Val = Console.ReadLine();
 
-                    Console.WriteLine("Las canciones satisfacen su busqueda son las siguientes: ");
+                    Console.WriteLine("El resultado de su busqueda fue el siguiente ");
                     var Resul = SpotifyFinal.CPC(Cri, Val);
                     for (int i = 0; i < Resul.Count; i++)
                     {
                         Console.WriteLine(Resul[i].Informacion());
                     }
 
-
-
-
-
                 }
-            }
+                if (Seleccion == "5")
+                {
+                    
+                    Console.WriteLine("Porfavor ingrese el nombre de su playlist junto con el criterio y valor de las canciones que quiere dentro de esta");
+                    string NP1 = Console.ReadLine();
+                    string C1 = Console.ReadLine();
+                    string CV1 = Console.ReadLine();
+                    
+                    SpotifyFinal.GenerarPlaylist(C1, CV1, NP1);
+                    
+                }
+                if (Seleccion == "6")
+                {
+                    Console.WriteLine("Sus playlists son las siguientes: ");
+                    Console.WriteLine(SpotifyFinal.VerMisPlaylists());
+                }
+
+            }   
 
             
 

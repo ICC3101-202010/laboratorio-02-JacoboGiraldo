@@ -5,14 +5,17 @@ namespace Laboratorio2
 {
     public class Espotifai
     {
-        public List<Cancion> Songs = new List<Cancion>();
+        List<Cancion> Songs = new List<Cancion>();
         
+        
+        List<string> VPL = new List<string>();
+        List<Playlist> PLAYLIST = new List<Playlist>();
+
 
         public Espotifai()
         {
             
-        }
-        
+        }     
         public bool AgregarCancion(Cancion cancionX)
         {
             int Cont = 0;
@@ -44,11 +47,7 @@ namespace Laboratorio2
             {
                 return false;
             }
-
-            
-
         }
-
         public void VerCanciones()
         {
             if (Songs.Count == 0)
@@ -59,23 +58,108 @@ namespace Laboratorio2
             {
                 Console.WriteLine(SongOfList.Informacion());
             }
-
         }
-
-        List<Cancion> SongsPC1 = new List<Cancion>();
+        
         public List<Cancion> CPC(String Criterio, String Valor)
         {
+            List<Cancion> SongsPC1 = new List<Cancion>();
+            int Contador = 0;
             foreach (Cancion S in Songs)
             {
                 if (S.Informacion().Contains(Criterio) == true && S.Informacion().Contains(Valor) == true)
                 {
                     SongsPC1.Add(S);
+                    Contador += 1;
+                }
+                else if (Contador == 0)
+                {
+                    Console.WriteLine("Sus criterios de busqueda no coinciden con ninguna cancion");
+                    
                 }
             }          
-            return SongsPC1;
+            return SongsPC1;            
+        }
+        List<string> NombresPlayLists = new List<string>();
+        public bool GenerarPlaylist(String C, String VC, String Nombre)
+        {
+            List<Cancion> CancionesPL = CPC(C,VC);
+            Playlist PLfinal = new Playlist(Nombre, CancionesPL);
+            int Contador = 0;
 
+            foreach (string NOM in NombresPlayLists)
+            {
+                if (NOM == Nombre)
+                {
+                    Console.WriteLine("La playlist ya existe, intente de nuevo");
+                    CancionesPL.Clear();
+                    return false;
+                }
+                else if (NOM != Nombre)
+                {
+                    Contador += 1;
+                }
+            }
+
+            if (Songs.Count == 0)
+            {
+                Console.WriteLine("No hay canciones existentes para agregar a su playlist");
+                return false;
+            }
+            else if(CancionesPL.Count == 0)
+            {
+                Console.WriteLine("No hay canciones que cumplan con el criterio para generar la playlist");
+                return false;
+            }
+            else if (NombresPlayLists.Count==0)
+            {
+                NombresPlayLists.Add(Nombre);
+                Console.WriteLine("Su Playlist ha sido creada exitosamente");
+                return true;
+
+            }
+            if (Contador != 0)
+            {
+                NombresPlayLists.Add(Nombre);
+                Console.WriteLine("Su Playlist ha sido creada exitosamente");
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+               
+                
+            
+          
+            
 
             
+            
         }
-    }
+
+       
+        public String VerMisPlaylists()
+        {
+            string Finale = "";
+            for (int X = 0; X<NombresPLayLists.Count;X++)
+            {
+                VPL.Add(NombresPLayLists[X]+ "\n");
+
+                for (int Z = 0; Z < CancionesPL.Count; Z++)
+                {
+                    VPL.Add(CancionesPL[Z]+"\n");
+                }
+            }
+            foreach (string element in VPL)
+            {
+                Finale += element;
+            }
+            return Finale;
+
+ 
+            
+
+        }
+
+    }   
 }
